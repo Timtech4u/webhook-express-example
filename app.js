@@ -1,20 +1,25 @@
-var express = require('express');
-var bodyParser = require("body-parser");
-var app = express();
+import express from 'express'
+import bodyParser from 'body-parser'
+import TodoHandler from './todoHandler'
 
-PORT = 5000
+var app = express()
+const PORT = 5000
+
+var todoHandler = new TodoHandler()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-      res.send('Hello World!');
+  res.send('Hello World!');
 });
 
 app.post('/', function (req, res) {
-  console.log(req);
+  if (req.body.data.node_type === 'Todo') {
+    todoHandler.handle(req.body)
+  }
 });
 
 app.listen(PORT, function () {
-      console.log('Example app listening on port ' + PORT);
+      console.log('Server listening for graph.cool webhooks on port ' + PORT);
 });
