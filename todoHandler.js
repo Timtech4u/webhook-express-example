@@ -1,8 +1,4 @@
 export default class TodoHandler {
-  constructor() {
-
-  }
-
   handle (body) {
     switch (body.event) {
       case 'NODE_CREATED':
@@ -15,54 +11,36 @@ export default class TodoHandler {
         this.todoDeleted(body.data)
         break
       default:
-        console.err('err')
+        // ignore updates to connections
+        console.log('not implemented yet')
     }
-    return 0
   }
 
   todoCreated (data) {
     const todo = this._parseTodo(data)
+    console.log('created todo:')
     console.log(todo)
-    return
+
+    // now we can do something cool, for example send a reminder email!
   }
 
   todoUpdated (data) {
     const todo = this._parseTodo(data)
-    console.log('updated hook not implemented')
-    return
+    console.log('updated todo:')
+    console.log(todo)
+
+    // todo was updated
   }
 
   todoDeleted (data) {
     const todo = this._parseTodo(data)
-    console.log('deleted hook not implemented')
-    return
-  }
+    console.log('deleted todo:')
+    console.log(todo)
 
-  todoAddedToConnection (data) {
-    console.log('addedToConnection hook not implemented')
-    return
-  }
-
-  todoRemovedFromConnection (data) {
-    console.log('removeFromConnection hook not implemented')
+    // todo was deleted
   }
 
   _parseTodo(data) {
     return {complete: data.node.complete, text: data.node.text, id: data.node.id}
   }
 }
-
-/*
-{
-    "event": "NODE_CREATED",
-    "mutation_id": "cio4eah8m006h01p0ltar3h36",
-    "data": {
-        "node": {
-            "text": "hello",
-            "complete": false,
-            "id": "VG9kbzpjaW80ZWFoODgwMDZnMDFwMGVmMWp2bGsz"
-        },
-        "node_type": "Todo"
-    }
-}
-*/
