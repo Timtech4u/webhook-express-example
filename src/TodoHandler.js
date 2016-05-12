@@ -41,6 +41,10 @@ export default class TodoHandler {
   }
 
   _parseTodo(data) {
-    return {complete: data.node.complete, text: data.node.text, id: data.node.id}
+    return {
+      complete: data.node.complete,
+      text: data.node.text,
+      id: data.node.id,
+    }
   }
 }
