@@ -8,14 +8,14 @@ export default class TodoHandler {
       case 'NODE_CREATED':
         this.todoCreated(body.data)
         break
-      case 'NODE_DELETED':
-        this.todoCreated(body.data)
+      case 'NODE_UPDATED':
+        this.todoUpdated(body.data)
         break
-      case 'NODE_CREATED':
-        this.todoCreated(body.data)
+      case 'NODE_DELETED':
+        this.todoDeleted(body.data)
         break
       default:
-        this.todoCreated(body.data)
+        console.err('err')
     }
     return 0
   }
@@ -27,20 +27,19 @@ export default class TodoHandler {
   }
 
   todoUpdated (data) {
+    const todo = this._parseTodo(data)
     console.log('updated hook not implemented')
-    console.log(todo)
     return
   }
 
   todoDeleted (data) {
+    const todo = this._parseTodo(data)
     console.log('deleted hook not implemented')
-    console.log(todo)
     return
   }
 
   todoAddedToConnection (data) {
     console.log('addedToConnection hook not implemented')
-    console.log(todo)
     return
   }
 
