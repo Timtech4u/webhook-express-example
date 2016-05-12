@@ -1,0 +1,13 @@
+{
+  "name": "webhook-example",
+  "version": "0.0.1",
+  "description": "graph.cool webhook example",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  }
+}
