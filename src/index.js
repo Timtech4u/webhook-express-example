@@ -9,8 +9,8 @@ app.use(bodyParser.json())
 
 app.post('/', (req, res) => {
   const todo = {
-    complete: req.body.createdModel.complete,
-    text: req.body.createdModel.text,
+    complete: req.body.createdNode.complete,
+    text: req.body.createdNode.text,
   }
 
   console.log('created todo:')
