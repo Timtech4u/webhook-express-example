@@ -11,7 +11,7 @@ You could try the [React/Relay example app](https://github.com/graphcool-example
 * In the action creator at graph.cool, choose 'Todo is created' as the trigger and enter the following query as the action handler payload:
 ```grapqhl
 {
-  createdModel {
+  createdNode {
     complete
     text
   }
