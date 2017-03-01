@@ -1,4 +1,6 @@
 # webhook-express-example
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/graphcool-examples/webhook-express-example.svg)](https://greenkeeper.io/)
 Example for the actions feature on graph.cool.
 
 ## Getting started
